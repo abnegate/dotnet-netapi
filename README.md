@@ -2,7 +2,7 @@
 NETAPI provides an easy to use yet feature rich API client implementation for use in any C# project.
 
 ## Installation
-Can be found on nuget.com
+NETAPI is available via [nuget](https://www.nuget.org/packages/NETAPI/)
 
 ## Usage
 Given the following endpoint enum:
@@ -138,7 +138,7 @@ Functionallity can be manipulated by creating custom services and configurations
 
 To get started, first create a custom configuration:
 ```chsarp
-    public class MyConfig : ApiConfigurationBase<Environment, Endpoint> { }
+    public class MyConfig: ApiConfigurationBase<Environment, Endpoint> { }
 ```
 
 Then create a custom service:

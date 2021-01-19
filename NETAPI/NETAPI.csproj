@@ -10,8 +10,9 @@
         <Description>NETAPI provides an easy to use yet feature rich API client implementation for use in any C# project.</Description>
         <PackOnBuild>true</PackOnBuild>
         <PackageId>NETAPI</PackageId>
-        <PackageVersion>1.0.0</PackageVersion>
-        <ReleaseVersion>1.0.0</ReleaseVersion>
+        <PackageVersion>1.0.1</PackageVersion>
+        <ReleaseVersion>1.0.1</ReleaseVersion>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="NuGet.Build.Packaging" Version="0.2.5-dev.8">
@@ -30,11 +31,6 @@
         <Folder Include="Extensions\" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="..\README.md">
-            <Link>README.md</Link>
-            <Pack>true</Pack>
-            <PackagePath>\</PackagePath>
-        </Content>
         <None Include="Examples\ExampleConfiguration.cs" />
     </ItemGroup>
 </Project>
