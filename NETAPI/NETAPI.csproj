@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>9.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <Authors>jakebarnby</Authors>
+        <Owners>Jake Barnby</Owners>
+        <PackageProjectUrl>https://github.com/abnegate/dotnet-netapi</PackageProjectUrl>
+        <Description>NETAPI provides an easy to use yet feature rich API client implementation for use in any C# project.</Description>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageId>NETAPI</PackageId>
+        <PackageVersion>1.0.0</PackageVersion>
+        <ReleaseVersion>1.0.0</ReleaseVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.5-dev.8">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Flurl.Http" Version="3.0.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Network\" />
+        <Folder Include="Model\" />
+        <Folder Include="Configuration\" />
+        <Folder Include="Examples\" />
+        <Folder Include="Exceptions\" />
+        <Folder Include="Utilities\" />
+        <Folder Include="Extensions\" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="..\README.md">
+            <Link>README.md</Link>
+            <Pack>true</Pack>
+            <PackagePath>\</PackagePath>
+        </Content>
+        <None Include="Examples\ExampleConfiguration.cs" />
+    </ItemGroup>
+</Project>

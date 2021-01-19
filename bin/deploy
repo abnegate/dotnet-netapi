@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Example: ./bin/deploy 1.0.0
+
+function deploy() {
+    local version="$1"
+    dotnet nuget push netapi/NETAPI/bin/Release/NETAPI."${version}".nupkg --api-key $(cat ~/.nuget/api_key) --source https://api.nuget.org/v3/index.json
+}
+
+deploy "$@"
