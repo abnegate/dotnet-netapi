@@ -45,7 +45,6 @@ namespace NETAPI.Services
             TEndpoint endpoint,
             T data);
 
-
         /// <summary>
         /// Posts the given <paramref name="data"/> to the given <paramref name="endpoint"/>,
         /// catching TimeoutException and TooManyRequestException.
@@ -56,6 +55,83 @@ namespace NETAPI.Services
         /// <param name="data"></param>
         /// <returns>The response model populated with data from the specified endpoint.</returns>
         Task<ResponseBase<X?>?> TryPost<T, X>(
+            TEndpoint endpoint,
+            T data);
+
+        /// <summary>
+        /// Puta the given <paramref name="data"/> to the given <paramref name="endpoint"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <param name="data"></param>
+        /// <exception cref="TooManyRequestsException">Thrown if too many requests are being made globally or to the given endpoint.</exception>
+        /// <exception cref="TimeoutException">Thrown if a request times out after the configured interval.</exception>
+        /// <returns>The response model populated with data from the specified endpoint.</returns>
+        Task<ResponseBase<X?>?> Put<T, X>(
+            TEndpoint endpoint,
+            T data);
+
+        /// <summary>
+        /// Puts the given <paramref name="data"/> to the given <paramref name="endpoint"/>,
+        /// catching TimeoutException and TooManyRequestException.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <param name="data"></param>
+        /// <returns>The response model populated with data from the specified endpoint.</returns>
+        Task<ResponseBase<X?>?> TryPut<T, X>(
+            TEndpoint endpoint,
+            T data);
+
+        /// <summary>
+        /// Deletes the given <paramref name="data"/> to the given <paramref name="endpoint"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <param name="data"></param>
+        /// <exception cref="TooManyRequestsException">Thrown if too many requests are being made globally or to the given endpoint.</exception>
+        /// <exception cref="TimeoutException">Thrown if a request times out after the configured interval.</exception>
+        /// <returns>The response model populated with data from the specified endpoint.</returns>
+        Task<ResponseBase<X?>?> Delete<X>(TEndpoint endpoint);
+
+        /// <summary>
+        /// Deletes the given <paramref name="data"/> to the given <paramref name="endpoint"/>,
+        /// catching TimeoutException and TooManyRequestException.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <param name="data"></param>
+        /// <returns>The response model populated with data from the specified endpoint.</returns>
+        Task<ResponseBase<X?>?> TryDelete<X>(TEndpoint endpoint);
+
+        /// <summary>
+        /// Patches the given <paramref name="data"/> to the given <paramref name="endpoint"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <param name="data"></param>
+        /// <exception cref="TooManyRequestsException">Thrown if too many requests are being made globally or to the given endpoint.</exception>
+        /// <exception cref="TimeoutException">Thrown if a request times out after the configured interval.</exception>
+        /// <returns>The response model populated with data from the specified endpoint.</returns>
+        Task<ResponseBase<X?>?> Patch<T, X>(
+            TEndpoint endpoint,
+            T data);
+
+        /// <summary>
+        /// Patches the given <paramref name="data"/> to the given <paramref name="endpoint"/>,
+        /// catching TimeoutException and TooManyRequestException.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="X"></typeparam>
+        /// <param name="endpoint"></param>
+        /// <param name="data"></param>
+        /// <returns>The response model populated with data from the specified endpoint.</returns>
+        Task<ResponseBase<X?>?> TryPatch<T, X>(
             TEndpoint endpoint,
             T data);
 

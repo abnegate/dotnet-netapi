@@ -19,7 +19,7 @@ namespace NETAPI.Services
     {
 
         private readonly Lazy<NetworkChecker> _networkChecker
-            = new Lazy<NetworkChecker>(() => new NetworkChecker());
+            = new(() => new NetworkChecker());
 
         public bool IsNetworkAvailable => _networkChecker.Value.HasInternet();
 
@@ -64,12 +64,42 @@ namespace NETAPI.Services
         /// <inheritdoc />
         public Task<ResponseBase<X?>?> Post<T, X>(TEndpoint endpoint, T data) =>
             Request(endpoint, () => GetRequest(endpoint)
-                .PostUrlEncodedAsync(data)
+                .PostJsonAsync(data)
                 .ReceiveJson<ResponseBase<X?>?>());
 
         /// <inheritdoc />
         public Task<ResponseBase<X?>?> TryPost<T, X>(TEndpoint endpoint, T data) =>
             TryRequest(() => Post<T, X>(endpoint, data));
+
+        /// <inheritdoc />
+        public Task<ResponseBase<X?>?> Put<T, X>(TEndpoint endpoint, T data) =>
+            Request(endpoint, () => GetRequest(endpoint)
+                .PutJsonAsync(data)
+                .ReceiveJson<ResponseBase<X?>?>());
+
+        /// <inheritdoc />
+        public Task<ResponseBase<X?>?> TryPut<T, X>(TEndpoint endpoint, T data) =>
+            TryRequest(() => Put<T, X>(endpoint, data));
+
+        /// <inheritdoc />
+        public Task<ResponseBase<X?>?> Delete<X>(TEndpoint endpoint) =>
+            Request(endpoint, () => GetRequest(endpoint)
+                .DeleteAsync()
+                .ReceiveJson<ResponseBase<X?>?>());
+
+        /// <inheritdoc />
+        public Task<ResponseBase<X?>?> TryDelete<X>(TEndpoint endpoint) =>
+            TryRequest(() => Delete<X>(endpoint));
+
+        /// <inheritdoc />
+        public Task<ResponseBase<X?>?> Patch<T, X>(TEndpoint endpoint, T data) =>
+            Request(endpoint, () => GetRequest(endpoint)
+                .PostUrlEncodedAsync(data)
+                .ReceiveJson<ResponseBase<X?>?>());
+
+        /// <inheritdoc />
+        public Task<ResponseBase<X?>?> TryPatch<T, X>(TEndpoint endpoint, T data) =>
+            TryRequest(() => Patch<T, X>(endpoint, data));
 
         /// <inheritdoc />
         public Task<ResponseBase<object?>?> Upload(
@@ -118,7 +148,7 @@ namespace NETAPI.Services
                 return ResultFromPath(result);
 
                 static ResponseBase<string?>? ResultFromPath(string path) =>
-                    new ResponseBase<string?> {
+                    new() {
                         Success = true,
                         Data = path
                     };

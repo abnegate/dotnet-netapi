@@ -4,6 +4,8 @@ NETAPI provides an easy to use yet feature rich API client implementation for us
 ## Installation
 NETAPI is available via [nuget](https://www.nuget.org/packages/NETAPI/)
 
+`dotnet add package NETAPI`
+
 ## Usage
 Given the following endpoint enum:
 ```csharp
