@@ -1,5 +1,9 @@
 # NETAPI
 NETAPI provides an easy to use yet feature rich API client implementation for use in any C# project.
+<br /><br /><br />
+<strong>Like NETAPI?</strong>
+<br />
+<a href="https://www.buymeacoffee.com/abnegate" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 ## Installation
 NETAPI is available via [nuget](https://www.nuget.org/packages/NETAPI/)
